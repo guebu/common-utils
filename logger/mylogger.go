@@ -15,6 +15,7 @@ const (
 
 
 // ToDo: Why is somewhere log2.blabla... being used!!
+// Try out something new...
 var(
 	Log *logrus.Logger
 )

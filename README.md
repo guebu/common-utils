@@ -1,2 +1,2 @@
-# common-utils
-This repo contains common utils for programming in Golang
+# go-utils
+This repository contains useful utils for programming in go

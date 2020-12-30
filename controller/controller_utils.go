@@ -2,7 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/guebu/go-utils/errors"
+	"github.com/guebu/common-utils/errors"
 )
 
 func Respond(c *gin.Context, status int, body interface{}){

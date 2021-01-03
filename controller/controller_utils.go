@@ -29,7 +29,7 @@ func RespondError(c *gin.Context, appErr *errors.ApplicationError){
 }
 
 func GetJSONMessage(message string) string {
-	jsonString := fmt.Sprintf(`{"message": "%s"}`, message)
+	jsonString := fmt.Sprintf(`{"message": "%s",}`, message)
 	return jsonString
 }
 

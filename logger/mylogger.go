@@ -11,55 +11,81 @@ const (
 	TagSeparator = ":"
 	LogLevel = "info"
 	Production = "prod"
+	LogLevelEnv = "LOG_LEVEL_GO"
 )
 
 
 // ToDo: Why is somewhere log2.blabla... being used!!
 // Try out something new...
 var(
-	Log *logrus.Logger
+	Log *myLogger
 )
 
-func init(){
-	level, err := logrus.ParseLevel(LogLevel)
-	if err != nil {
-		level = logrus.DebugLevel
-	}
+type myLogger struct {
+	log *logrus.Logger
+}
 
-	Log = &logrus.Logger{
-		Level: level,
+func init(){
+
+	var tmpLogger = &logrus.Logger{
+		Level: getLogLevel(),
 		Out:os.Stdout,
 	}
 
+	Log = &myLogger{}
+	Log.log = tmpLogger
+
 	if IsProduction() {
 		// In Production we use the JSON output
-		Log.Formatter = &logrus.JSONFormatter{}
+		Log.log.Formatter = &logrus.JSONFormatter{}
 	} else {
 		//Log.Formatter = &logrus.JSONFormatter{}
-		Log.Formatter = &logrus.TextFormatter{}
+		Log.log.Formatter = &logrus.TextFormatter{}
 	}
+}
+
+func getLogLevel( ) logrus.Level {
+	switch os.Getenv(LogLevelEnv){
+	case "info":
+		return logrus.InfoLevel
+	case "debug":
+		return logrus.DebugLevel
+	case "error":
+		return logrus.ErrorLevel
+	default:
+		return logrus.InfoLevel
+	}
+}
+
+func (log *myLogger)Printf(format string, v...interface{}) {
+	if len(v) == 0 {
+		Info(format)
+	} else {
+		Info(fmt.Sprintf(format, v...))
+	}
+
 }
 
 func Info(msg string, tags ...string) {
-	if Log.Level < logrus.InfoLevel {
+	if Log.log.Level < logrus.InfoLevel {
 		return
 	}
-	Log.WithFields(parseFields(tags...)).Info(msg)
+	Log.log.WithFields(parseFields(tags...)).Info(msg)
 }
 
 func Error(msg string, err error, tags ...string) {
-	if Log.Level < logrus.ErrorLevel {
+	if Log.log.Level < logrus.ErrorLevel {
 		return
 	}
 	msg = fmt.Sprintf("%s - ERROR: -- %v", msg, err)
-	Log.WithFields(parseFields(tags...)).Error(msg)
+	Log.log.WithFields(parseFields(tags...)).Error(msg)
 }
 
 func Debug(msg string, tags ...string) {
-	if Log.Level < logrus.DebugLevel {
+	if Log.log.Level < logrus.DebugLevel {
 		return
 	}
-	Log.WithFields(parseFields(tags...)).Debug(msg)
+	Log.log.WithFields(parseFields(tags...)).Debug(msg)
 }
 
 func parseFields(tags ...string) logrus.Fields {

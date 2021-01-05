@@ -10,6 +10,6 @@ func main() {
 	fmt.Println("Version v0.1.0")
 	fmt.Println("Test of go-utils library...")
 	logger.Info("This is an Info...", "Status:Open", "App:Test")
-	err := errors.NewNotFoundError("New not found error!")
+	err := errors.NewNotFoundError("New not found error!", nil)
 	logger.Error("This is an error", err, "Status:Error")
 }

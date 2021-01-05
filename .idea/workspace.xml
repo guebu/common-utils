@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="360d81a4-4a98-45d8-86eb-be269005e0d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/logger/mylogger_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controller_utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controller_utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errors/errors_utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/errors/errors_utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/mylogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/logger/mylogger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +48,21 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Go Test.controller_utils_test.go">
+  <component name="RunManager" selected="Go Build.go build github.com/guebu/common-utils">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="common-utils" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/guebu/common-utils" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="common-utils" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/guebu/common-utils" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -82,8 +93,19 @@
       <filePath value="$PROJECT_DIR$/controller/controller_utils_test.go" />
       <method v="2" />
     </configuration>
+    <configuration name="mylogger_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="common-utils" />
+      <working_directory value="$PROJECT_DIR$/logger" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/logger/mylogger_test.go" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/guebu/common-utils" />
+        <item itemvalue="Go Test.mylogger_test.go" />
         <item itemvalue="Go Test.controller_utils_test.go" />
         <item itemvalue="Go Build.go build main.go" />
       </list>
